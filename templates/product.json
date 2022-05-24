@@ -1,5 +1,14 @@
 {
   "sections": {
+    "16534170684cf662a7": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }<\/style><div class='embed-container'><iframe src='https:\/\/www.youtube.com\/embed\/AGcTCvn-a6g?autoplay=1' frameborder='0' allowfullscreen><\/iframe><\/div>",
+        "color_scheme": "background-1",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
     "main": {
       "type": "main-product",
       "blocks": {
@@ -172,59 +181,14 @@
         "padding_top": 36,
         "padding_bottom": 28
       }
-    },
-    "1653409347a187d87a": {
-      "type": "video",
-      "disabled": true,
-      "settings": {
-        "heading": "",
-        "heading_size": "h2",
-        "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
-        "description": "",
-        "full_width": true,
-        "color_scheme": "background-1",
-        "padding_top": 0,
-        "padding_bottom": 0
-      }
-    },
-    "16534170638343ef69": {
-      "type": "rich-text",
-      "blocks": {
-        "16534170635e212808-1": {
-          "type": "text",
-          "settings": {
-            "text": ""
-          }
-        }
-      },
-      "block_order": [
-        "16534170635e212808-1"
-      ],
-      "settings": {
-        "color_scheme": "background-1",
-        "full_width": true,
-        "padding_top": 40,
-        "padding_bottom": 52
-      }
-    },
-    "16534170684cf662a7": {
-      "type": "custom-liquid",
-      "settings": {
-        "custom_liquid": "<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }<\/style><div class='embed-container'><iframe src='https:\/\/www.youtube.com\/embed\/AGcTCvn-a6g?autoplay=1' frameborder='0' allowfullscreen><\/iframe><\/div>",
-        "color_scheme": "background-1",
-        "padding_top": 0,
-        "padding_bottom": 0
-      }
     }
   },
   "order": [
+    "16534170684cf662a7",
     "main",
     "165340894327da1892",
     "image-with-text",
     "multicolumn",
-    "product-recommendations",
-    "1653409347a187d87a",
-    "16534170638343ef69",
-    "16534170684cf662a7"
+    "product-recommendations"
   ]
 }
