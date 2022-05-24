@@ -172,6 +172,19 @@
         "padding_top": 36,
         "padding_bottom": 28
       }
+    },
+    "1653409347a187d87a": {
+      "type": "video",
+      "settings": {
+        "heading": "",
+        "heading_size": "h2",
+        "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+        "description": "",
+        "full_width": true,
+        "color_scheme": "background-1",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
     }
   },
   "order": [
@@ -179,6 +192,7 @@
     "165340894327da1892",
     "image-with-text",
     "multicolumn",
-    "product-recommendations"
+    "product-recommendations",
+    "1653409347a187d87a"
   ]
 }
