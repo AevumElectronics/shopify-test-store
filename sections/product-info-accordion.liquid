@@ -1,16 +1,4 @@
 {%- style -%}
-  .section-{{ section.id }}-padding {
-    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
-  }
-
-  @media screen and (min-width: 750px) {
-    .section-{{ section.id }}-padding {
-      padding-top: {{ section.settings.padding_top }}px;
-      padding-bottom: {{ section.settings.padding_bottom }}px;
-    }
-  }
-
 
   .box{
     width:100%;
@@ -30,11 +18,23 @@
 
   #box details{
     transition: all .4s ;
+    //border-radius:10px;
+    color:{{ section.settings.heading_color }};
+    border-radius:{{ section.settings.border_radius }}px;
+    border-top-left-radius:calc({{ section.settings.border_radius }}+2)px;
+    border-top-right-radius:calc({{ section.settings.border_radius }}+2)px;
+
   }
   #box details[open] summary ~ * {
     animation: open 0.5s ease-in-out;
   }
-
+  #box details > * {
+    border-radius:{{ section.settings.border_radius }}px;
+  }
+  
+  #box h3 {
+    color:{{ section.settings.heading_color }};
+  }
   @keyframes open {
     0% {
       opacity: 0;
@@ -54,21 +54,24 @@
     margin:1em auto;
     position: relative;
     cursor: pointer;
-    border-radius:10px;
+    //border-radius:10px;
     box-shadow:0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
     //background-color:rgb(240 253 250);
     background-color:{{ section.settings.front_color }};
+    
+    
   }
   #box details[open] {
-    background-color:rgb(240 253 250);
-    border-radius:10px;
+    background-color:{{ section.settings.back_color }};
+    //border-radius:{{ section.settings.border_radius }}px;
+    //border-radius:10px;
     box-shadow:0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
     padding-bottom:1em;
     
   }
   #box details[open] > summary {
     box-shadow:0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-    border-radius:10px;
+    //border-radius:10px;
     //background-color:rgb(240 253 250);
   }
 
@@ -87,10 +90,10 @@
   .p-description > h4{
     padding:0.4em 2em;
     margin:0;
-    color:rgb(41 37 36);
+    color:{{ section.settings.details_color }};
   }
   .span-options{
-    color:rgb(41 37 36);;
+    //color:rgb(41 37 36);
     display:inline-block;
     font-weight:600;
     font-size:1.2em;
@@ -99,29 +102,29 @@
 {%- endstyle -%}
 
 
-
+<div id="section-{{ section.id }}">
 <div class="box" id="box">
-  <details id="Details-{{ block.id }}-{{ section.id }}" >
+  <details>
     <div class="p-description">
     {{ product.description }}
     </div>
-    <summary id="Summary-{{ block.id }}-{{ section.id }}">
+    <summary>
       <h3 class="summary-text">Product Description
         </h3>{% render 'icon-caret' %}
     </summary>
   </details>
 
-  <details id="Details-{{ block.id }}-{{ section.id }}" >
+  <details>
     <div class="p-description">
       <h4>{{ product.type }}</h4>
     </div>
-    <summary id="Summary-{{ block.id }}-{{ section.id }}">
+    <summary>
       <h3 class="summary-text">Product Type
         </h3>{% render 'icon-caret' %}
     </summary>
   </details>
 
-  <details id="Details-{{ block.id }}-{{ section.id }}" >
+  <details>
     <div class="p-description">
     {% for product_option in product.options_with_values %}
       <h4> 
@@ -138,25 +141,62 @@
   
 
 </div>
+</div>
 
 
 {% schema %}
 {
-  "name": "Product Info Accordion",
+  "name": "product-info-accordion",
   "tag": "section",
   "class": "section",
+  "templates": [
+    "product"
+  ],
+  "presets": [
+    {
+      "name": "Product Info Accordion"
+    }
+  ],
   "settings": [
       {
         "type": "color",
         "id": "front_color",
         "label": "Front Color",
-        "default": "#f0fdfa"
+        "default": "#fbfbfd"
+      },
+      {
+        "type": "color",
+        "id": "back_color",
+        "label": "Back Color",
+        "default": "#ffffff"
       },
       {
         "type": "color",
         "id": "box_color",
         "label": "Box Color",
         "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "heading_color",
+        "label": "Heading Color",
+        "default": "#000000"
+      },
+      {
+        "type": "color",
+        "id": "details_color",
+        "label": "Details Color",
+        "default": "#292524"
+      },
+      {
+        "type": "range",
+        "id": "border_radius",
+        "min": 0,
+        "max": 30,
+        "step": 1,
+        "unit": "px",
+        "label": "Border Radius",
+        "default": 10
       },
       {
         "type": "range",
